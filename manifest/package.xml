@@ -163,6 +163,11 @@
     </types>
 
     <types>
+        <members>Admin</members>
+        <name>Profile</name>
+    </types>
+
+    <types>
         <members>Disaster_Response_Team</members>
         <name>Group</name>
     </types>

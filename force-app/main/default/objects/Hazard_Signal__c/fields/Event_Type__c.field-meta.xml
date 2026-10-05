@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Type__c</fullName>
+    <description>Type of geophysical hazard event.</description>
+    <label>Event Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Earthquake</fullName>
+                <default>false</default>
+                <label>Earthquake</label>
+            </value>
+            <value>
+                <fullName>Landslide</fullName>
+                <default>false</default>
+                <label>Landslide</label>
+            </value>
+            <value>
+                <fullName>Glacier_Change</fullName>
+                <default>false</default>
+                <label>Glacier Change</label>
+            </value>
+            <value>
+                <fullName>Glacial_Lake_Change</fullName>
+                <default>false</default>
+                <label>Glacial Lake Change</label>
+            </value>
+            <value>
+                <fullName>Flood</fullName>
+                <default>false</default>
+                <label>Flood</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

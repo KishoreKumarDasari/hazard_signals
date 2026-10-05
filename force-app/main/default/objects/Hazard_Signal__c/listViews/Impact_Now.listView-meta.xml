@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Impact_Now</fullName>
+    <columns>NAME</columns>
+    <columns>Event_Type__c</columns>
+    <columns>Risk_Level__c</columns>
+    <columns>Location_Name__c</columns>
+    <columns>Country__c</columns>
+    <columns>Observation_Time__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Alert_Phase__c</field>
+        <operation>equals</operation>
+        <value>Impact</value>
+    </filters>
+    <label>Impact - Now</label>
+</ListView>

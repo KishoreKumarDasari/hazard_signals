@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Manifest for the Flash-Flood Early-Warning PoC (Hazard) components only.
+  Deploy:  sf project deploy start -x manifest/package-hazard-poc.xml -o <org>
+  Retrieve: sf project retrieve start -x manifest/package-hazard-poc.xml -o <org>
+  NOTE: CustomMetadata *records* may fail a normal file deploy on some orgs
+        (server-side UNKNOWN_EXCEPTION). If so, seed them via Apex
+        Metadata.Operations.enqueueDeployment instead.
+-->
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <types>
+        <members>Hazard_Signal__c</members>
+        <members>Hazard_Media__c</members>
+        <members>Hazard_Source__mdt</members>
+        <members>Hazard_Region__mdt</members>
+        <name>CustomObject</name>
+    </types>
+
+    <types>
+        <members>Hazard_Signal__c.Alert_Phase__c</members>
+        <members>Hazard_Signal__c.Baseline_Value__c</members>
+        <members>Hazard_Signal__c.Change_Percent__c</members>
+        <members>Hazard_Signal__c.Continent__c</members>
+        <members>Hazard_Signal__c.Country__c</members>
+        <members>Hazard_Signal__c.Detected_At__c</members>
+        <members>Hazard_Signal__c.Event_Type__c</members>
+        <members>Hazard_Signal__c.Latitude__c</members>
+        <members>Hazard_Signal__c.Lead_Time_Hours__c</members>
+        <members>Hazard_Signal__c.Location_Name__c</members>
+        <members>Hazard_Signal__c.Longitude__c</members>
+        <members>Hazard_Signal__c.ML_Last_Run__c</members>
+        <members>Hazard_Signal__c.ML_Output__c</members>
+        <members>Hazard_Signal__c.Notified__c</members>
+        <members>Hazard_Signal__c.Observation_Time__c</members>
+        <members>Hazard_Signal__c.Observed_Value__c</members>
+        <members>Hazard_Signal__c.Predicted_Impact_Window__c</members>
+        <members>Hazard_Signal__c.Primary_Source_URL__c</members>
+        <members>Hazard_Signal__c.Region__c</members>
+        <members>Hazard_Signal__c.Risk_Level__c</members>
+        <members>Hazard_Signal__c.Risk_Score__c</members>
+        <members>Hazard_Signal__c.Source_Record_Id__c</members>
+        <members>Hazard_Signal__c.Source_System__c</members>
+        <members>Hazard_Media__c.Caption__c</members>
+        <members>Hazard_Media__c.Hazard_Signal__c</members>
+        <members>Hazard_Media__c.Media_Type__c</members>
+        <members>Hazard_Media__c.Media_URL__c</members>
+        <members>Hazard_Media__c.Sort_Order__c</members>
+        <members>Hazard_Media__c.Source_Ref_Id__c</members>
+        <members>Hazard_Source__mdt.Active__c</members>
+        <members>Hazard_Source__mdt.Base_Path__c</members>
+        <members>Hazard_Source__mdt.Critical_Threshold__c</members>
+        <members>Hazard_Source__mdt.High_Threshold__c</members>
+        <members>Hazard_Source__mdt.Named_Credential__c</members>
+        <members>Hazard_Source__mdt.Source_Key__c</members>
+        <members>Hazard_Region__mdt.Active__c</members>
+        <members>Hazard_Region__mdt.Continent__c</members>
+        <members>Hazard_Region__mdt.Country__c</members>
+        <members>Hazard_Region__mdt.Max_Latitude__c</members>
+        <members>Hazard_Region__mdt.Max_Longitude__c</members>
+        <members>Hazard_Region__mdt.Min_Latitude__c</members>
+        <members>Hazard_Region__mdt.Min_Longitude__c</members>
+        <members>Hazard_Region__mdt.Min_Magnitude__c</members>
+        <members>Hazard_Region__mdt.Region_Name__c</members>
+        <name>CustomField</name>
+    </types>
+
+    <types>
+        <members>Hazard_Signal__c.All</members>
+        <members>Hazard_Signal__c.Critical_Active</members>
+        <members>Hazard_Signal__c.High_And_Critical</members>
+        <members>Hazard_Signal__c.Impact_Now</members>
+        <members>Hazard_Signal__c.Precursor_Warnings</members>
+        <name>ListView</name>
+    </types>
+
+    <types>
+        <members>Hazard_Region.Alaska_Range</members>
+        <members>Hazard_Region.Atlas_Mountains</members>
+        <members>Hazard_Region.Australian_Snowy_Mountains</members>
+        <members>Hazard_Region.Bolivian_Andes</members>
+        <members>Hazard_Region.Canadian_Rockies</members>
+        <members>Hazard_Region.Cascades_Washington</members>
+        <members>Hazard_Region.Chilean_Andes</members>
+        <members>Hazard_Region.Ecuadorian_Andes</members>
+        <members>Hazard_Region.Ethiopian_Highlands</members>
+        <members>Hazard_Region.French_Alps</members>
+        <members>Hazard_Region.Icelandic_Glaciers</members>
+        <members>Hazard_Region.India_Assam</members>
+        <members>Hazard_Region.India_Himachal</members>
+        <members>Hazard_Region.India_Sikkim</members>
+        <members>Hazard_Region.India_Uttarakhand</members>
+        <members>Hazard_Region.Italian_Alps</members>
+        <members>Hazard_Region.Mount_Kilimanjaro</members>
+        <members>Hazard_Region.Mount_Ruapehu_NZ</members>
+        <members>Hazard_Region.Nepal_Tibet_Himalaya</members>
+        <members>Hazard_Region.Norwegian_Fjords</members>
+        <members>Hazard_Region.PNG_Highlands</members>
+        <members>Hazard_Region.Pakistan_Karakoram</members>
+        <members>Hazard_Region.Peru_Cordillera_Blanca</members>
+        <members>Hazard_Region.Rwenzori_Mountains</members>
+        <members>Hazard_Region.Sierra_Nevada</members>
+        <members>Hazard_Region.Southern_Alps_NZ</members>
+        <members>Hazard_Region.Swiss_Alps</members>
+        <members>Hazard_Source.GDACS</members>
+        <members>Hazard_Source.ML_PRECURSOR</members>
+        <members>Hazard_Source.USGS</members>
+        <name>CustomMetadata</name>
+    </types>
+
+    <types>
+        <members>CRDisasterConstants</members>
+        <members>CRHazardCalloutMock</members>
+        <members>CRHazardIngestQueueable</members>
+        <members>CRHazardIngestSchedulable</members>
+        <members>CRHazardIngestTest</members>
+        <members>CRHazardMLController</members>
+        <members>CRHazardMLControllerTest</members>
+        <members>CRHazardRiskService</members>
+        <name>ApexClass</name>
+    </types>
+
+    <types>
+        <members>hazardMlPanel</members>
+        <name>LightningComponentBundle</name>
+    </types>
+
+    <types>
+        <members>Hazard_Signal__c.Run_ML</members>
+        <name>QuickAction</name>
+    </types>
+
+    <types>
+        <members>Hazard_Signal_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+
+    <types>
+        <members>Hazard_Signal__c-Hazard Signal Layout</members>
+        <name>Layout</name>
+    </types>
+
+    <types>
+        <members>Hazard_Signal__c</members>
+        <name>CustomTab</name>
+    </types>
+
+    <types>
+        <members>Hazard_Response</members>
+        <name>PermissionSet</name>
+    </types>
+
+    <types>
+        <members>USGS_API</members>
+        <members>GDACS_API</members>
+        <members>Disaster_ML_API</members>
+        <name>NamedCredential</name>
+    </types>
+
+    <types>
+        <members>Hazard_Alert</members>
+        <name>CustomNotificationType</name>
+    </types>
+
+    <types>
+        <members>Disaster_Response_Team</members>
+        <name>Group</name>
+    </types>
+
+    <version>64.0</version>
+</Package>

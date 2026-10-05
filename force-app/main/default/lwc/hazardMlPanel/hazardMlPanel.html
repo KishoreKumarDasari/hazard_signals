@@ -1,0 +1,72 @@
+<template>
+    <lightning-card title="Flash-Flood ML Decision Support" icon-name="utility:flow">
+        <div class="slds-p-horizontal_medium">
+            <template if:true={hasSignal}>
+                <div class="slds-grid slds-wrap slds-gutters_small slds-m-bottom_small">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-badge label={signal.Risk_Level__c} class="slds-m-right_x-small"></lightning-badge>
+                        <lightning-badge label={signal.Alert_Phase__c}></lightning-badge>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                        <lightning-formatted-number value={signal.Risk_Score__c}></lightning-formatted-number>
+                        <span class="slds-text-body_small"> risk score</span>
+                    </div>
+                </div>
+
+                <dl class="slds-list_horizontal slds-wrap">
+                    <dt class="slds-item_label slds-text-color_weak slds-size_1-of-3">Location</dt>
+                    <dd class="slds-item_detail slds-size_2-of-3">{signal.Location_Name__c}</dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-size_1-of-3">Event</dt>
+                    <dd class="slds-item_detail slds-size_2-of-3">{signal.Event_Type__c}</dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-size_1-of-3">Lead Time (h)</dt>
+                    <dd class="slds-item_detail slds-size_2-of-3">{signal.Lead_Time_Hours__c}</dd>
+                </dl>
+
+                <div class="slds-m-vertical_small">
+                    <lightning-button
+                        label="Run ML Prediction"
+                        variant="brand"
+                        icon-name="utility:einstein"
+                        onclick={handleRunMl}
+                        disabled={isRunning}>
+                    </lightning-button>
+                    <template if:true={isRunning}>
+                        <lightning-spinner alternative-text="Running" size="small"></lightning-spinner>
+                    </template>
+                </div>
+
+                <template if:true={mlOutput}>
+                    <div class="slds-box slds-box_x-small slds-m-bottom_small ml-output">
+                        <pre>{mlOutput}</pre>
+                    </div>
+                </template>
+
+                <template if:true={images.length}>
+                    <h3 class="slds-text-title_caps slds-m-bottom_x-small">Source Imagery</h3>
+                    <div class="slds-grid slds-wrap slds-gutters_x-small">
+                        <template for:each={images} for:item="img">
+                            <div key={img.Id} class="slds-col slds-size_1-of-2 slds-m-bottom_x-small">
+                                <img src={img.Media_URL__c} alt={img.Caption__c} class="hazard-image" />
+                                <p class="slds-text-body_small">{img.Caption__c}</p>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+
+                <template if:true={links.length}>
+                    <h3 class="slds-text-title_caps slds-m-vertical_x-small">Source Links</h3>
+                    <template for:each={links} for:item="lnk">
+                        <p key={lnk.Id}>
+                            <lightning-icon icon-name="utility:new_window" size="xx-small"></lightning-icon>
+                            <a href={lnk.Media_URL__c} target="_blank" rel="noopener">{lnk.Caption__c}</a>
+                        </p>
+                    </template>
+                </template>
+            </template>
+
+            <template if:false={hasSignal}>
+                <p class="slds-text-color_weak">Loading hazard signal…</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

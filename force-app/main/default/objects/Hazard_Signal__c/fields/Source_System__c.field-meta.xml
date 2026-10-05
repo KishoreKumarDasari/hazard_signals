@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_System__c</fullName>
+    <description>Public data source that produced this hazard signal.</description>
+    <label>Source System</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>USGS</fullName>
+                <default>false</default>
+                <label>USGS</label>
+            </value>
+            <value>
+                <fullName>GDACS</fullName>
+                <default>false</default>
+                <label>GDACS</label>
+            </value>
+            <value>
+                <fullName>NASA_LHASA</fullName>
+                <default>false</default>
+                <label>NASA LHASA</label>
+            </value>
+            <value>
+                <fullName>Copernicus</fullName>
+                <default>false</default>
+                <label>Copernicus</label>
+            </value>
+            <value>
+                <fullName>ICIMOD</fullName>
+                <default>false</default>
+                <label>ICIMOD</label>
+            </value>
+            <value>
+                <fullName>ML_Model</fullName>
+                <default>false</default>
+                <label>ML Model</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

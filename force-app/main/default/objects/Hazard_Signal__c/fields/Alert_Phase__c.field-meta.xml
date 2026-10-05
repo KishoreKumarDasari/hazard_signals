@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alert_Phase__c</fullName>
+    <description>Where in the event lifecycle this signal sits. Precursor = detected days in advance; Impact = detected during/after the disaster.</description>
+    <label>Alert Phase</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Precursor</fullName>
+                <default>false</default>
+                <label>Precursor</label>
+            </value>
+            <value>
+                <fullName>Imminent</fullName>
+                <default>false</default>
+                <label>Imminent</label>
+            </value>
+            <value>
+                <fullName>Impact</fullName>
+                <default>false</default>
+                <label>Impact</label>
+            </value>
+            <value>
+                <fullName>Post_Event</fullName>
+                <default>false</default>
+                <label>Post-Event</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
